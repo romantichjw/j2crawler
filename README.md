@@ -48,7 +48,6 @@ package com.saas.jplogiccloud.crawler.jobs;
 import com.saas.jplogiccloud.starter.j2crawler.annotation.FetchJob;
 import com.saas.jplogiccloud.starter.j2crawler.core.*;
 import lombok.extern.slf4j.Slf4j;
-import org.seimicrawler.xpath.JXDocument;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -77,11 +76,7 @@ public class DemoFetchJob extends BaseFetchJob {
     @Override
     public void onFetch(FetchResp resp) {
         try {
-            JXDocument doc = FetchParser.getJXDoc(resp);
-            String url = resp.getUrl();
-            if(url.indexOf("www.ip3366.net") != -1){
-                getCloudProxyIp(resp, doc);
-            }
+
         } catch (Exception e) {
             log.info(">>>> demoFetchJob-> 抓取数据异常:{}", e.getMessage());
             e.printStackTrace();
